@@ -1,5 +1,7 @@
 // FS SYNC
 const {readFileSync, writeFileSync} = require('fs');
+
+console.log('Start')
 // alternatively
 /* const fs = require('fs');
 fs.read; */
@@ -14,3 +16,5 @@ writeFileSync(
      //if you wanna append the file you need to add flag 'a'
      {flag: 'a'}
 )
+console.log('Done with the task');
+console.log('Starting the next one: ');
