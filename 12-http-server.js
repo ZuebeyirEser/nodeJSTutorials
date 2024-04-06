@@ -16,7 +16,7 @@ const server = http.createServer((req, res)=>{
 })
 server.listen(4000)
 
-// this code allow us to run http server and keep listening http://localhost:3000/
+// this code allow us to run http server and keep listening http://localhost:4000/
  */
 const http = require('http');
 

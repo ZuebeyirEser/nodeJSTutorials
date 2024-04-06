@@ -1,34 +1,39 @@
-// ASYNC
-const { log } = require('console');
-const {readFile, writeFile} = require('fs');
-//in async we need to provide a call back
-//thus we need to add utf8
-// first i wanna read first file then save it afterwards read second file and save it then put the result together.
-readFile('./content/first.txt','utf8', (err, result) => {
-    if(err) {
-        console.log(err)
-        //return null
-        return
-    }
-    //console.log(result);
-    const first = result;
-    readFile('./content/second.txt','utf8', (err, result) => {
-        if(err) {
-            console.log(err)
-            //return null
-            return
-        }
-        const second = result; 
-        writeFile('./content/result-async.txt', `Here is the result : ${first}, ${second}` , (err, result) => {
-            if(err) {
-                console.log(err)
-                return
-            }
-            console.log(result);
-        });      
+/* //HTTP set up
+const http = require('http')
 
-    })
+const server = http.createServer((req, res)=>{
+    if(req.url === '/'){
+        res.end('Welcome to our home page')
+    }
+    if(req.ulr === '/about') {
+        res.end('here is short history')
+    }
+    res.end(`
+    <h1>Opps!</h1>
+    <p>We cannot find what you are looking for</p>
+    <a href="/">back home</a>
+    `)
 })
-/* if we run above code we get a buffer 
-<Buffer 68 65 6c 6c 6f 20 74 68 69 73 20 69 73 20 66 69 72 73 74 20 74 65 78 74 20 66 69 6c 65 2e>
-*/
+server.listen(4000)
+
+// this code allow us to run http server and keep listening http://localhost:3000/
+ */
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>Welcome to our home page</h1>');
+    } else if (req.url === '/about') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>Here is a short history</h1>');
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        res.end('<h1>Oops! Page not found</h1>');
+    }
+});
+
+const PORT = 4000;
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}/`);
+});
