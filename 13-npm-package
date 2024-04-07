@@ -12,6 +12,10 @@ const items = [1, [2, [3 , 4]]];
 
 const newItems = _.flattenDeep(items);
 console.log(newItems);
+// FOR THE NOSYNC ICLOUD:
+// sudo npm i -g nosync-icloud
+// ns
+// for documentation: https://github.com/HaoChuan9421/nosync-icloud/blob/master/docs/README_en.md
 
 // if we wanna clone some repo and we know that node.modules will not be in our clone repo
 //Thus we run first npm install. This code will check the package.json file and install all the dependency in our node_modules
