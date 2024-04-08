@@ -23,3 +23,6 @@ const PORT = 4000;
 server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/`);
 });
+
+
+/// as we can see here our blocking code in /about is blocking other routes to load !! thats why we need to use async   

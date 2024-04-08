@@ -1,30 +1,30 @@
 // ASYNC
 const { log } = require('console');
 const {readFile, writeFile} = require('fs');
-console.log('Start')
+log('Start');
 //in async we need to provide a call back
 //thus we need to add utf8
 // first i wanna read first file then save it afterwards read second file and save it then put the result together.
 readFile('./content/first.txt','utf8', (err, result) => {
     if(err) {
-        console.log(err)
+        console.log(err);
         //return null
-        return
-    }
+        return;
+    };
     //console.log(result);
     const first = result;
     readFile('./content/second.txt','utf8', (err, result) => {
         if(err) {
-            console.log(err)
+            console.log(err);
             //return null
-            return
-        }
+            return;
+        };
         const second = result; 
         writeFile('./content/result-async.txt', `Here is the result : ${first}, ${second}` , (err, result) => {
             if(err) {
-                console.log(err)
-                return
-            }
+                console.log(err);
+                return;
+            };
             console.log('Done with the task');
         });      
 
